@@ -1,33 +1,29 @@
 #!usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 Created on 8 December 2019
 
-Encryption
-
+Encryption wiht Key
 @author: Tolgahan Bardakcı
 @author-email: bardakcitolgahan@gmail.com
-
 """
 
 __version__ = "0.1"
 __author__ = "Tolgahan Bardakcı"
-__url__ = "http://www.github.com"
+__url__ = "https://github.com/2tolgahan2/Encryption/blob/master/Encryption.py"
 
-
-#try except eklenecek!
+#add: try except!
 
 key = 1202349
 word = "selam"
 word = word.lower()
 word = word.replace(" ", "")
 
-def listToString(final_list):  
-    # initialize an empty string 
-    str1 = "" 
-    # return string   
-    return (str1.join(final_list)) 
+def listToString(final_list):
+    # initialize an empty string
+    str1 = ""
+    # return string
+    return (str1.join(final_list))
 
 def encrypt():
 
@@ -47,7 +43,7 @@ def encrypt():
             value = list_key[i]
             letter = chr(ord(word[i]) + int(value))
             final_list.append(letter)
-        
+
         res = listToString(final_list)
         print(res)
     else:
@@ -66,36 +62,5 @@ def encrypt():
 
         res = listToString(final_list)
         print(res)
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-
-
-
-                first_l = ord(word[i])
-            first_l = first_l + value
-    elif(len_word % len_key == 1):
-        print('a')
-    elif(len_word % len_key == 2):
-        print('a')
-        first_key = list(conv_dict)[0]
-        value = list(conv_dict.values())[0]
-
-
-
-
-
-            res.extend(repeat(str(key)[i + 2], 1)) 
-    """
 
 encrypt()
