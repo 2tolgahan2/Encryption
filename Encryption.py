@@ -8,14 +8,14 @@ Encryption wiht Key
 @author-email: bardakcitolgahan@gmail.com
 """
 
-__version__ = "0.1"
+__version__ = "0.2"
 __author__ = "Tolgahan Bardakcı"
 __url__ = "https://github.com/2tolgahan2/Encryption/blob/master/Encryption.py"
 
 #add: try except!
 
-key = 1202349
-word = "selam"
+key = 12023
+word = "Hello World!"
 word = word.lower()
 word = word.replace(" ", "")
 
@@ -25,17 +25,16 @@ def listToString(final_list):
     # return string
     return (str1.join(final_list))
 
+len_key = len(str(key))
+len_word = len(word)
+range_of_loop = len(word)
+
+list_word = list(word)
+list_key = list(str(key))
 def encrypt():
-
-    len_key = len(str(key))
-    len_word = len(word)
-
+    global list_key
     if(len_word % len_key == 0):
         repeat_time = int(len_word/len_key)
-        range_of_loop = len(word)
-
-        list_word = list(word)
-        list_key = list(str(key))
         list_key = list_key * repeat_time
 
         final_list = []
@@ -48,10 +47,6 @@ def encrypt():
         print(res)
     else:
         repeat_time = int(len_word/len_key) + 1
-        range_of_loop = len(word)
-
-        list_word = list(word)
-        list_key = list(str(key))
         list_key = list_key * repeat_time
 
         final_list = []
