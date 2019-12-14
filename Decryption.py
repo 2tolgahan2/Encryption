@@ -1,23 +1,22 @@
 #!usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on 8 December 2019
+Created on 14 December 2019
 
-Encryption with Key
+Decryption with Key
 @author: Tolgahan Bardakcı
 @author-email: bardakcitolgahan@gmail.com
 """
 
-__version__ = "0.3"
+__version__ = "0.1"
 __author__ = "Tolgahan Bardakcı"
 __url__ = "https://github.com/2tolgahan2/Encryption/blob/master/Encryption.py"
 
-#import textract
-#word = textract.process("/Demo.docx")
 #from getpass import getpass
+#import textract
 
 key = 111
-word = "Hello World"
+word = "ifmmp!xpsme"
 
 try:
     word = str(word)
@@ -39,7 +38,7 @@ list_word = list(word)
 list_key = list(str(key))
 
     
-def encrypt():
+def decrypt():
     global list_key
     if(len_word % len_key == 0):
         repeat_time = int(len_word/len_key)
@@ -48,7 +47,7 @@ def encrypt():
         final_list = []
         for i in range(len_word):
             value = list_key[i]
-            letter = chr(ord(word[i]) + int(value))
+            letter = chr(ord(word[i]) - int(value))
             final_list.append(letter)
 
     else:
@@ -58,7 +57,7 @@ def encrypt():
         final_list = []
         for i in range(len_word):
             value = list_key[i]
-            letter = chr(ord(word[i]) + int(value))
+            letter = chr(ord(word[i]) - int(value))
             final_list.append(letter)
 
     res = listToString(final_list)
@@ -67,4 +66,5 @@ def encrypt():
     print(res, file=result_file, flush="True")
     result_file.close()
     print("Your text is printed to the file 'En_Result.txt' ")
-encrypt()
+
+decrypt()
