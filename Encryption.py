@@ -8,17 +8,22 @@ Encryption with Key
 @author-email: bardakcitolgahan@gmail.com
 """
 
-__version__ = "0.3"
+__version__ = "0.4"
 __author__ = "Tolgahan Bardakcı"
 __url__ = "https://github.com/2tolgahan2/Encryption/blob/master/Encryption.py"
 
-#import textract
-#word = textract.process("/Demo.docx")
-#from getpass import getpass
+
+from GetPath import pt
+
+pt_simple_text = pt + '/Simple.txt'
+pt_enc_text = pt + '/Encrypted.txt'
+
+with open(pt_simple_text, 'r') as file:
+    data = file.read().replace('\n', ' ')
 
 key = 111
-word = "Hello World"
-
+word = data
+ 
 try:
     word = str(word)
 except:
@@ -62,9 +67,9 @@ def encrypt():
             final_list.append(letter)
 
     res = listToString(final_list)
-    result_file = open("En_Result.txt", "w")
+    result_file = open(pt_enc_text, "w")
 
     print(res, file=result_file, flush="True")
     result_file.close()
-    print("Your text is printed to the file 'En_Result.txt' ")
+    print("Your text is printed to the file 'Encrypted.txt' ")
 encrypt()

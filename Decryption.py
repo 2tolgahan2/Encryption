@@ -8,15 +8,20 @@ Decryption with Key
 @author-email: bardakcitolgahan@gmail.com
 """
 
-__version__ = "0.1"
+__version__ = "0.2"
 __author__ = "Tolgahan Bardakcı"
 __url__ = "https://github.com/2tolgahan2/Encryption/blob/master/Encryption.py"
 
-#from getpass import getpass
-#import textract
+from GetPath import pt
+
+pt_enc_text = pt + '/Encrypted.txt'
+pt_dec_text = pt + '/Result.txt'
+
+with open(pt_enc_text, 'r') as file:
+    data = file.read().replace('\n', ' ')
 
 key = 111
-word = "ifmmp!xpsme"
+word = data
 
 try:
     word = str(word)
@@ -61,10 +66,10 @@ def decrypt():
             final_list.append(letter)
 
     res = listToString(final_list)
-    result_file = open("En_Result.txt", "w")
+    result_file = open(pt_dec_text, "w")
 
     print(res, file=result_file, flush="True")
     result_file.close()
-    print("Your text is printed to the file 'En_Result.txt' ")
+    print("Your text is printed to the file 'Result.txt' ")
 
 decrypt()
